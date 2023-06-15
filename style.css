@@ -32,15 +32,15 @@ body {
     background-color: #9e507dff;
 }
 
-.button.stages.active {
+.button.stages.active, .button.game.active{
     background-color: #3e5ca580;
 }
 
-.button.stages.inactive {
+.button.stages.inactive, .button.game.inactive{
     background-color: #3c5ba44c;
 }
 
-.button.stages.active:hover {
+.button.stages.active:hover, .button.game.active:hover{
     background-color: #3d5ba6ff;
 }
 

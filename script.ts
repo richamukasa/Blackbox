@@ -56,30 +56,22 @@ function loadLevelSelection(): void {
     if(boxId == null) {
         window.alert("Na hörma, jetzt wähl auch was aus!");
     } else {
-        let clickBoxes: HTMLCollection = document.getElementsByClassName("persona");
-        let confirmButton: HTMLDivElement | null = document.querySelector("#confirm");
-        let returnButton: HTMLDivElement | null = document.querySelector("#return");
         let body: HTMLBodyElement | null = document.querySelector("#body")
         let levelNames: string[] = [];
-        let buttons: HTMLCollection = document.getElementsByClassName("button");
-        let selectedBox: HTMLCollection = document.getElementsByClassName("selected");
+        let wrapper: HTMLDivElement | null = document.querySelector("#wrapper");
 
-        if (selectedBox.length > 0)
-            selectedBox[0].classList.replace("selected", "unselected");
-        
+        wrapper.innerHTML = "";
         body.style.background = "#3c5ba44c";
+        
         loadingState = LoadingState.LEVEL;
 
-        confirmButton.classList.replace("people", "stages");
-        confirmButton.classList.replace("active", "inactive");
-        returnButton.classList.replace("people", "stages");
+        createBoxes("level");
+
+        let clickBoxes: HTMLCollection | null = document.getElementsByClassName("level");
 
         for (let i: number = 0; i < clickBoxes.length; i++) {
-            clickBoxes[i].innerHTML = "";
-            clickBoxes[i].classList.add("level");
-            clickBoxes[i].id = `level${i + 1}`;
-        }
-        clickBoxes = document.getElementsByClassName("level");
+                clickBoxes[i].id = `level${i + 1}`;
+            }
 
         if (boxId == "adhd")
             levelNames = ["Online Unterricht", "Einschlafen", "Aufstehen", "Alltag"];
@@ -88,20 +80,47 @@ function loadLevelSelection(): void {
 
         for (let i: number = 0; i < 4; i++) {
             clickBoxes[i].innerHTML = `<p>${levelNames[i]}</p>`;
-            clickBoxes[i].classList.remove("persona");
         }
-        returnButton.removeEventListener;
-        returnButton.addEventListener("click", loadPersonas);
-        confirmButton.removeEventListener;
-        confirmButton.addEventListener("click", loadLevels)
+
+        createButton("stages", "active", "ZURÜCK", "return");
+        createButton("stages", "inactive", "START", "confirm");
+
     }
+}
+
+function createBoxes(_class: string): void {
+    let wrapper: HTMLDivElement | null = document.querySelector("#wrapper");
+    for (let i: number = 0; i < 4; i++) {
+        let box: HTMLDivElement = document.createElement("div");
+        box.classList.add(_class, "unselected");
+        box.addEventListener("click", setId);
+        wrapper.appendChild(box);
+    }
+}
+
+function createButton(_stage: string, _state: string, _text: string,  _id: string): void {
+    let button: HTMLDivElement = document.createElement("div");
+    let wrapper: HTMLDivElement | null = document.querySelector("#wrapper");
+    button.classList.add("button", _stage, _state);
+    button.id = _id;
+    button.innerText = _text;
+    wrapper.appendChild(button);
+
+    if (_stage == "people" && _id == "return")
+        button.addEventListener("click", loadDisclaimer);
+    else if (_stage == "people" && _id == "confirm")
+        button.addEventListener("click", loadLevelSelection);
+    else if (_stage == "stages" && _id == "return")
+        button.addEventListener("click", loadPersonas);
+    else if (_stage == "stages" && _id == "confirm")
+        button.addEventListener("click", loadLevels)
+    else if (_stage == "game" && _id == "return")
+        button.addEventListener("click", loadLevelSelection);
 }
 
 function loadLevels(): void {
     let wrapper: HTMLDivElement | null = document.querySelector("#wrapper");
-    let returnButton: HTMLDivElement = document.createElement("div");
     let level: HTMLDivElement = document.createElement("div");
-    const returnList = returnButton.classList;
 
     boxId = "adhd";
 
@@ -111,14 +130,8 @@ function loadLevels(): void {
 
     level.innerText = "Coming soon, for real for real."
 
-    returnList.add("button", "stages", "active");
-    returnButton.id = "return";
-    returnButton.innerText = "ZURÜCK"
-    returnButton.addEventListener("click", loadLevelSelection);
-    wrapper.appendChild(level);
-    wrapper.appendChild(returnButton);
-
-    
+    createButton("game", "active", "ZURÜCK", "return")
+    wrapper.appendChild(level);  
 
 }
 
@@ -136,35 +149,22 @@ function loadPersonas(): void {
     loadingState = LoadingState.PERSONA;
 
     let id: string[] = ["adhd", "depression", "did", "schizophrenia"];
-    let returnButton: HTMLDivElement = document.createElement("div");
-    let confirmButton: HTMLDivElement = document.createElement("div");
-    const returnList = returnButton.classList;
-    const confirmList = confirmButton.classList;
+
 
     wrapper.style.width = "900px";
     wrapper.style.height = "900px";
+    createBoxes("persona");
 
-    for (let i: number = 0; i < 4; i++) {
-        let personaBox: HTMLDivElement = document.createElement("div");
-        personaBox.classList.add("persona", "unselected");
-        personaBox.id = id[i];
-        personaBox.innerHTML = `<p>Name: ${returnPersona(i).name}</p>` + `<p>Alter: ${returnPersona(i).age}</p>` + `<p>Diagnose: ${returnPersona(i).diagnose}</p>` + `<p>Lebenssituation: ${returnPersona(i).circumstance}</p>`;
-        personaBox.addEventListener("click", setId);
-        wrapper.appendChild(personaBox);
+
+    let personaBoxes: HTMLCollection | null = document.getElementsByClassName("persona");
+
+    for (let i: number = 0; i < personaBoxes.length; i++) {
+        personaBoxes[i].id = id[i];
+        personaBoxes[i].innerHTML = `<p>Name: ${returnPersona(i).name}</p>` + `<p>Alter: ${returnPersona(i).age}</p>` + `<p>Diagnose: ${returnPersona(i).diagnose}</p>` + `<p>Lebenssituation: ${returnPersona(i).circumstance}</p>`;
     }
 
-    returnList.add("button", "people", "active");
-    returnButton.id = "return";
-    returnButton.innerText = "ZURÜCK"
-    returnButton.addEventListener("click", loadDisclaimer);
-    wrapper.appendChild(returnButton);
-    console.log(returnList);
-
-    confirmList.add("button", "people", "inactive");
-    confirmButton.id = "confirm";
-    confirmButton.innerText = "WEITER";
-    confirmButton.addEventListener("click", loadLevelSelection);
-    wrapper.appendChild(confirmButton);
+    createButton("people", "active", "ZURÜCK", "return");
+    createButton("people", "inactive", "WEITER", "confirm");
 }
 
 function setId(): void {
