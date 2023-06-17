@@ -18,8 +18,10 @@ let boxId;
 let loadingState;
 function handleLoad() {
     let enterButton = document.querySelector("#entryButton");
+    let settings = document.querySelector("#settings");
     loadingState = LoadingState.START;
     enterButton.addEventListener("click", loadDisclaimer);
+    settings.addEventListener("click", w3_open);
     console.log("Beta");
 }
 function enterGame() {
@@ -156,6 +158,20 @@ function returnPersona(_index) {
         selection.push(person);
     }
     return selection[_index];
+}
+function w3_open() {
+    let settings = document.querySelector("#settings");
+    settings.innerHTML = "&times";
+    settings.removeEventListener("click", w3_open);
+    settings.addEventListener("click", w3_close);
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    let settings = document.querySelector("#settings");
+    settings.innerHTML = "☰";
+    settings.removeEventListener("click", w3_close);
+    settings.addEventListener("click", w3_open);
+    document.getElementById("mySidebar").style.display = "none";
 }
 window.addEventListener("load", handleLoad);
 //# sourceMappingURL=script.js.map

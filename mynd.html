@@ -7,13 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYND</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script src="script.js"></script>
 </head>
 
 <body id="body">
-    <h1>MYND</h1>
+    <div id="menu">
+        <div class="settings">
+            <div class="settings" id="settings" onclick="w3_open()">☰</div>
+        </div>
+        <div class="sidebar" style="display:none" id="mySidebar">
+            <a href="https://www.youtube.com/watch?v=tC09I1835wg" target="_blank" class="button">Link 1</a><br>
+            <a href="https://www.youtube.com/watch?v=wzcQ2c6t9ek" target="_blank" class="button">Link 2</a><br>
+            <a href="https://www.youtube.com/watch?v=-EbaldJ74s8" target="_blank" class="button">Link 3</a>
+        </div>
+    </div>
+    
     <div id="wrapper">
         <div class="button" id="entryButton">START</div>
     </div>

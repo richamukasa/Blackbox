@@ -26,8 +26,10 @@ let loadingState: LoadingState;
 
 function handleLoad():void {
     let enterButton: HTMLDivElement = document.querySelector("#entryButton");
+    let settings: HTMLDivElement = document.querySelector("#settings");
     loadingState = LoadingState.START;
     enterButton.addEventListener("click", loadDisclaimer);
+    settings.addEventListener("click", w3_open);
     console.log("Beta");
 }
 
@@ -204,5 +206,23 @@ function returnPersona(_index: number): Person {
 
     return selection[_index];
 }
+
+function w3_open() {
+    let settings: HTMLDivElement = document.querySelector("#settings");
+    settings.innerHTML = "&times";
+    settings.removeEventListener("click", w3_open);
+    settings.addEventListener("click", w3_close);
+
+    document.getElementById("mySidebar").style.display = "block";
+  }
+  
+  function w3_close() {
+    let settings: HTMLDivElement = document.querySelector("#settings");
+    settings.innerHTML = "☰";
+    settings.removeEventListener("click", w3_close);
+    settings.addEventListener("click", w3_open);
+
+    document.getElementById("mySidebar").style.display = "none";
+  }
 
 window.addEventListener("load", handleLoad);
