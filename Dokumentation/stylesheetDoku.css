@@ -1,0 +1,22 @@
+body{
+    width:1000px;
+    background-color: #f3f3f3;
+    padding: 200px;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h3{
+    font-size: 30pt;
+    font-weight: 600;
+}
+
+h2{
+    font-weight: 500;
+    font-size: 25pt;
+}
+
+p{
+    font-size: 17pt;
+    font-weight: 400;
+}
