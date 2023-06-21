@@ -1,11 +1,13 @@
 a {
     text-decoration: none;
-    color:bisque;
+    color: #000;
 }
 
 body {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:fantasy;
+    background-color: #ddd;
+    color: #444;
 }
 
 .button {
@@ -44,11 +46,55 @@ body {
     background-color: #3d5ba6ff;
 }
 
+#buttonWrap {
+    margin-left: auto;
+    margin-right: auto;
+    width: 633px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#detail {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-radius: 25px;
+    font-size: 66%;
+    text-align: justify;
+    overflow-y: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#detail::-webkit-scrollbar {
+    display: none;
+  }
+
 #menu {
     position: absolute;
-    border-style: solid;
+    border-style: none;
     width: 400px;
     height: 900px;
+}
+
+#return {
+    margin-left: 0px;
+}
+
+#confirm {
+    margin-right: 0px;
+}
+
+#selection {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #wrapper {
@@ -63,42 +109,66 @@ body {
 }
 
 .level, .persona{
-    margin:auto;
-    text-align: left;
+    text-align: center;
     position: relative;
-    width: 350px;
-    height: 350px;
-    border-style: solid;
-    font-size: 18px;
-    padding-left: 10px;
+    width: 25%;
+    height: 100px;
+    border-style: none;
+    border-width: 3px;
+    border-radius: 25px;
+    font-size: 30px;
     overflow-wrap:break-word;
-    overflow-y: auto;
 }
 
-.settings {
+.settingsStart, .settingsDis, .settingsPers, .settingsLevel {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     text-align: center;
     font-size: 40px;
-    width: 250px;
+    width: 400px;
     height: 100px;
-    margin-left: px;
+    color: #000;
 }
 
-.level {
+.settingsStart {
+    background-color: #444;
+}
+
+.settingsStart:hover {
+    background-color: #222;
+}
+
+.setLinksStart, .setLinksDis, .setLinksPers, .setLinksLevel{
+    position: relative;
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    width: 400px;
+    height: 100px;
+    color: #000;
+}
+
+.setLinksStart {
+    background-color: #666;
+}
+
+.setLinksStart:hover {
+    background-color: #444;
+}
+
+.level, .setLinksLevel {
     background-color: #3c5ba44c;
 }
 
-.persona {
+.persona, .setLinksPers {
     background-color: #9d507e80;
 }
 
-.persona:hover {
+.persona:hover, .setLinksPers:hover, .settingsPers {
     background-color: #9e507ca6;
 }
 
-.level:hover {
+.level:hover, .setLinksLevel:hover, .settingsLevel {
     background-color: #3e5ca580;
 }
 
@@ -110,10 +180,11 @@ body {
     font-weight: bold;
 }
 
-.disclaimer {
+.disclaimer, .setLinksDis, .settingsDis {
     background-color: #dfc023a6;
 }
 
-.disclaimer:hover {
+.disclaimer:hover, .setLinksDis:hover {
     background-color: #dec023ff;
 }
+
