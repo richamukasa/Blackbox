@@ -1,12 +1,42 @@
-#wrapper {
+@font-face {
+    font-family: roboto;
+    src: url(/Font/Roboto_Slab/static/RobotoSlab-Regular.ttf);
+}
+
+@font-face {
+    font-family: lato;
+    src: url(/Font/lato/Lato-Regular.ttf);
+}
+
+body {
+    background-color: #3d5ba6;
+}
+
+#wrapper, #gameWrap{
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    width: 900px;
-    height: 900px;
-    border-style: solid;
+    border-radius: 5%;
+    background-color: #6e84bcff;
+}
+
+#wrapper {
+    margin-top: 25px;
+    font-family: lato;
+    width: 850px;
+    height: 850px;
+}
+
+#gameWrap {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 700px;
+    height: 700px;
+    border-color: antiquewhite;
+    background-color: #9eadd2ff;
+    z-index: 1;
 }
 
 #test {
@@ -16,9 +46,97 @@
     position: absolute;
 }
 
+.circle, .square{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    border-style: solid;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    position: absolute;
+}
+
+.timeStamp {
+    position: absolute;
+    border-style: solid;
+    border-color: #9eadd2ff;
+    border-width: 2px;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+}
+
+.correct {
+    background-color: greenyellow;
+}
+
+.incorrect {
+    background-color: #b00;
+}
+
+.dragWrap, .dropWrap {
+    text-align: center;
+    position: absolute;
+    height: 50px;
+}
+
+.dragWrap {
+    bottom: 10px;
+}
+
+.dropWrap {
+    top: 10px;
+}
+
+.formWrap {
+    background-color: #253766ff;
+    position: absolute;
+    height: 130px;
+    border-style: solid;
+    border-color: antiquewhite;
+    border-width: 5px;
+    border-radius: 10px;
+}
+
+.word, .correct {
+    position: absolute;
+    margin: auto;
+    font-size: 20px;
+    width: 90px;
+    height: 50px;
+    border-radius: 5%;
+    border-color: black;
+}
+
+.word {
+    background-color: antiquewhite;
+}
+
+.word:hover {
+    background-color: #ddd;
+}
+
 .square {
     position: absolute;
     width: 50px;
     height: 50px;
     border-style: solid;
+}
+
+.sound {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: url(./Icons/Speakers_active.png);
+    background-repeat: no-repeat;
+    background-size: 150px;
 }
