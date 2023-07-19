@@ -78,18 +78,24 @@ function loadDisclaimer(): void {
 
 function loadLevels(): void {
     let wrapper: HTMLDivElement | null = document.querySelector("#wrapper");
-    let level: HTMLDivElement = document.createElement("div");
+    let detail: HTMLDivElement = document.createElement("div");
+    let buttonWrap: HTMLDivElement = document.createElement("div");
 
     boxId = "adhd";
+    buttonWrap.id = "buttonWrap";
+
+    detail.id = "detail";
+    detail.classList.add("levelDetail");
+    detail.innerText = "Coming soon, for real for real."
 
     wrapper.innerHTML = "";
     wrapper.style.display = "flex";
     wrapper.style.flexWrap = "wrap";
+    
+    wrapper.append(detail, buttonWrap);
 
-    level.innerText = "Coming soon, for real for real."
-
-    createButton("game", "active", "ZURÜCK", "return")
-    wrapper.appendChild(level);
+    createButton("game", "active", "ZURÜCK", "return");
+    createLink("game", "active", "SPIELEN", "confirm");
 
 }
 
@@ -106,16 +112,11 @@ function loadLevelSelection(): void {
 
         selection.id = "selection";
         detail.id = "detail";
+        detail.classList.add("levelDetail");
         buttonWrap.id = "buttonWrap";
 
         for (let setLink of setLinks) {
-            setLink.classList.add("setLinksLevel");
-        }
-
-        setLinks = document.getElementsByClassName("setLinksLevel");
-
-        for (let setLink of setLinks) {
-            setLink.classList.remove("setLinksPers");
+            setLink.classList.replace("setLinksPers", "setLinksLevel");
         }
 
         document.querySelector("#settings").className = "settingsLevel";
@@ -125,11 +126,6 @@ function loadLevelSelection(): void {
         wrapper.append(selection, detail, buttonWrap);
 
         loadingState = LoadingState.LEVEL;
-        let clickBoxes: HTMLCollection | null = document.getElementsByClassName("level");
-
-        for (let i: number = 0; i < clickBoxes.length; i++) {
-            clickBoxes[i].id = `level${i + 1}`;
-        }
 
         if (boxId == "adhd")
             levelNames = ["Online Unterricht", "Howto: Relax", "Verlegt, Verloren,Vergessen", "DIY"];
@@ -137,7 +133,7 @@ function loadLevelSelection(): void {
             levelNames = ["Kommt demnächst!", "Kommt demnächst!", "Kommt demnächst!", "Kommt demnächst!"];
 
         for (let i: number = 0; i < 4; i++) {
-            clickBoxes[i].innerHTML = `<p>${levelNames[i]}</p>`;
+            createBoxes("level", levelNames[i]);
         }
 
         createButton("stages", "active", "ZURÜCK", "return");
@@ -174,6 +170,7 @@ function loadPersonas(): void {
 
     selection.id = "selection";
     detail.id = "detail";
+    detail.classList.add("personaDetail");
     buttonWrap.id = "buttonWrap";
 
     boxId = null;
@@ -203,17 +200,17 @@ function loadPersonas(): void {
 
 function createBoxes(_class: string, _content: string): void {
     let selection: HTMLDivElement | null = document.querySelector("#selection");
-        let box: HTMLDivElement = document.createElement("div");
-        let text: HTMLDivElement = document.createElement("div");
-        let background: HTMLDivElement = document.createElement("div");
+    let box: HTMLDivElement = document.createElement("div");
+    let text: HTMLDivElement = document.createElement("div");
+    let background: HTMLDivElement = document.createElement("div");
 
-        box.classList.add("container", "unselected");
-        text.classList.add(_class, "text");
-        text.innerHTML = _content;
-        background.classList.add(_class, "background");
-        box.append(background, text);
-        box.addEventListener("click", setId);
-        selection.appendChild(box);
+    box.classList.add("container", "unselected");
+    text.classList.add(_class, "text");
+    text.innerHTML = _content;
+    background.classList.add(_class, "background");
+    box.append(background, text);
+    box.addEventListener("click", setId);
+    selection.appendChild(box);
 }
 
 function createButton(_stage: string, _state: string, _text: string, _id: string): void {
@@ -222,7 +219,7 @@ function createButton(_stage: string, _state: string, _text: string, _id: string
 
     button.classList.add("button", _stage, _state);
     button.id = _id;
-    button.innerText = _text;
+    button.innerHTML = _text;
     buttonWrap.appendChild(button);
 
     if (_stage == "people" && _id == "return")
@@ -237,9 +234,16 @@ function createButton(_stage: string, _state: string, _text: string, _id: string
         button.addEventListener("click", loadLevelSelection);
 }
 
-
-
-
+function createLink(_stage: string, _state: string, _text: string, _id: string): void {
+    createButton(_stage, _state, _text, _id);
+    let playButton: HTMLDivElement = document.querySelector(_id);
+    let link: HTMLAnchorElement = document.createElement("a");
+    link.href = "https://richamukasa.github.io/Blackbox/Spiele/Einschlafen/einschlafen.html";
+    link.target = "_blank";
+    link.innerText = "SPIELEN"
+    playButton.innerHTML = "";
+    playButton.append(link);
+}
 
 function setId(): void {
     let confirmButton: HTMLDivElement | null = document.querySelector("#confirm");

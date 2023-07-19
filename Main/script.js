@@ -60,14 +60,19 @@ function loadDisclaimer() {
 }
 function loadLevels() {
     let wrapper = document.querySelector("#wrapper");
-    let level = document.createElement("div");
+    let detail = document.createElement("div");
+    let buttonWrap = document.createElement("div");
     boxId = "adhd";
+    buttonWrap.id = "buttonWrap";
+    detail.id = "detail";
+    detail.classList.add("levelDetail");
+    detail.innerText = "Coming soon, for real for real.";
     wrapper.innerHTML = "";
     wrapper.style.display = "flex";
     wrapper.style.flexWrap = "wrap";
-    level.innerText = "Coming soon, for real for real.";
+    wrapper.append(detail, buttonWrap);
     createButton("game", "active", "ZURÜCK", "return");
-    wrapper.appendChild(level);
+    createLink("game", "active", "SPIELEN", "confirm");
 }
 function loadLevelSelection() {
     if (boxId == null) {
@@ -82,29 +87,22 @@ function loadLevelSelection() {
         let buttonWrap = document.createElement("div");
         selection.id = "selection";
         detail.id = "detail";
+        detail.classList.add("levelDetail");
         buttonWrap.id = "buttonWrap";
         for (let setLink of setLinks) {
-            setLink.classList.add("setLinksLevel");
-        }
-        setLinks = document.getElementsByClassName("setLinksLevel");
-        for (let setLink of setLinks) {
-            setLink.classList.remove("setLinksPers");
+            setLink.classList.replace("setLinksPers", "setLinksLevel");
         }
         document.querySelector("#settings").className = "settingsLevel";
         body.style.background = "#3c5ba44c";
         wrapper.innerHTML = "";
         wrapper.append(selection, detail, buttonWrap);
         loadingState = LoadingState.LEVEL;
-        let clickBoxes = document.getElementsByClassName("level");
-        for (let i = 0; i < clickBoxes.length; i++) {
-            clickBoxes[i].id = `level${i + 1}`;
-        }
         if (boxId == "adhd")
             levelNames = ["Online Unterricht", "Howto: Relax", "Verlegt, Verloren,Vergessen", "DIY"];
         else
             levelNames = ["Kommt demnächst!", "Kommt demnächst!", "Kommt demnächst!", "Kommt demnächst!"];
         for (let i = 0; i < 4; i++) {
-            clickBoxes[i].innerHTML = `<p>${levelNames[i]}</p>`;
+            createBoxes("level", levelNames[i]);
         }
         createButton("stages", "active", "ZURÜCK", "return");
         createButton("stages", "inactive", "START", "confirm");
@@ -132,6 +130,7 @@ function loadPersonas() {
     document.querySelector("#settings").className = "settingsPers";
     selection.id = "selection";
     detail.id = "detail";
+    detail.classList.add("personaDetail");
     buttonWrap.id = "buttonWrap";
     boxId = null;
     body.style.background = "#9e517c4c";
@@ -167,7 +166,7 @@ function createButton(_stage, _state, _text, _id) {
     let buttonWrap = document.querySelector("#buttonWrap");
     button.classList.add("button", _stage, _state);
     button.id = _id;
-    button.innerText = _text;
+    button.innerHTML = _text;
     buttonWrap.appendChild(button);
     if (_stage == "people" && _id == "return")
         button.addEventListener("click", loadDisclaimer);
@@ -179,6 +178,16 @@ function createButton(_stage, _state, _text, _id) {
         button.addEventListener("click", loadLevels);
     else if (_stage == "game" && _id == "return")
         button.addEventListener("click", loadLevelSelection);
+}
+function createLink(_stage, _state, _text, _id) {
+    createButton(_stage, _state, _text, _id);
+    let playButton = document.querySelector(_id);
+    let link = document.createElement("a");
+    link.href = "https://richamukasa.github.io/Blackbox/Spiele/Einschlafen/einschlafen.html";
+    link.target = "_blank";
+    link.innerText = "SPIELEN";
+    playButton.innerHTML = "";
+    playButton.append(link);
 }
 function setId() {
     let confirmButton = document.querySelector("#confirm");

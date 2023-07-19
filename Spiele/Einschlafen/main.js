@@ -55,7 +55,8 @@ var FallAsleep;
         startTimer();
     }
     function handleLoad() {
-        document.getElementById("test").addEventListener("click", startGame);
+        let button = document.querySelector("#button");
+        button.addEventListener("click", startGame);
     }
     function randomPosition() {
         let wrapper = document.querySelector("#gameWrap");
@@ -73,6 +74,7 @@ var FallAsleep;
         }, 3000);
     }
     function startGame() {
+        let button = document.querySelector("#button");
         console.log("we in dis");
         FallAsleep.globalGame = true;
         timer();
@@ -92,8 +94,9 @@ var FallAsleep;
             }
         }, randomTime());
         window.setTimeout(stopGame, 120000);
-        document.getElementById("test").removeEventListener("click", startGame);
-        document.getElementById("test").addEventListener("click", stopGame);
+        button.removeEventListener("click", startGame);
+        button.addEventListener("click", stopGame);
+        button.classList.replace("active", "inactive");
     }
     function restart() {
         let wrapper = document.querySelector("#wrapper");
@@ -104,6 +107,7 @@ var FallAsleep;
         startGame();
     }
     function stopGame() {
+        let button = document.querySelector("#button");
         FallAsleep.globalGame = false;
         clearInterval(runGame);
         clearInterval(runTimer);
@@ -113,8 +117,9 @@ var FallAsleep;
         else {
             console.log("Real shit!");
         }
-        document.getElementById("test").removeEventListener("click", stopGame);
-        document.getElementById("test").addEventListener("click", restart);
+        button.classList.replace("inactive", "active");
+        button.removeEventListener("click", stopGame);
+        button.addEventListener("click", restart);
     }
     function spawnSound() {
         let x = Math.floor(Math.random() * soundLib.length);

@@ -62,7 +62,8 @@ namespace FallAsleep {
     }
 
     function handleLoad(): void {
-        document.getElementById("test").addEventListener("click", startGame);
+        let button: HTMLDivElement = document.querySelector("#button");
+        button.addEventListener("click", startGame);
     }
 
     function randomPosition(): Vector {
@@ -85,6 +86,7 @@ namespace FallAsleep {
     }
 
     function startGame(): void {
+        let button: HTMLDivElement = document.querySelector("#button");
         console.log("we in dis");
         globalGame = true;
         timer();
@@ -105,8 +107,9 @@ namespace FallAsleep {
         }, randomTime());
 
         window.setTimeout(stopGame, 120000);
-        document.getElementById("test").removeEventListener("click", startGame);
-        document.getElementById("test").addEventListener("click", stopGame);
+        button.removeEventListener("click", startGame);
+        button.addEventListener("click", stopGame);
+        button.classList.replace("active", "inactive");  
     }
 
     function restart(): void {
@@ -120,6 +123,7 @@ namespace FallAsleep {
     }
 
     function stopGame(): void {
+        let button: HTMLDivElement = document.querySelector("#button");
         globalGame = false;
         clearInterval(runGame);
         clearInterval(runTimer);
@@ -128,8 +132,9 @@ namespace FallAsleep {
         } else {
             console.log("Real shit!");
         }
-        document.getElementById("test").removeEventListener("click", stopGame);
-        document.getElementById("test").addEventListener("click", restart);
+        button.classList.replace("inactive", "active");
+        button.removeEventListener("click", stopGame);
+        button.addEventListener("click", restart);
     }
 
     function spawnSound(): void {
