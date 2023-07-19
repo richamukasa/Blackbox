@@ -150,7 +150,7 @@ function loadPersonas(): void {
     boxId = null;
 
     wrapper.id = "wrapper";
-    wrapper.style.marginLeft = "18.93%";
+    wrapper.style.marginLeft = "10%";
     wrapper.append(selection, detail, buttonWrap);
 
     body.innerHTML = "";
