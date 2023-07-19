@@ -229,7 +229,7 @@ var FallAsleep;
             return "triangle";
     }
     function randomTime() {
-        return randomNumber(3000, 10000);
+        return randomNumber(1000, 10000);
     }
     window.addEventListener("load", handleLoad);
 })(FallAsleep || (FallAsleep = {}));
