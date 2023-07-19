@@ -10,14 +10,28 @@
 
 a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 body {
     text-align: center;
     font-family: lato;
     background-color: #ddd;
-    color: #444;
+    color: #000;
+}
+
+h1 {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    font-family: roboto;
+    font-size: 800%;
+    color: #404040;
+}
+
+h1:hover {
+    color: #7f7f7f;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.24);
 }
 
 .button {
@@ -26,8 +40,10 @@ body {
     text-align: center;
     font-size: 40px;
     width: 250px;
-    height: 100px;
+    padding-top: 4%;
+    padding-bottom: 4%;
     border-radius: 20px;
+    font-family: roboto;
 }
 
 .button.people.active,
@@ -37,7 +53,7 @@ body {
 }
 
 .button.people.inactive {
-    background-color: #9d507e80;
+    background-color: #b77d9eff;
 }
 
 .button.people.active:hover {
@@ -76,6 +92,7 @@ body {
     font-size: 30px;
     overflow-wrap: break-word;
     top: 50px;
+    font-family: roboto;
 }
 
 .level.text,
@@ -89,47 +106,31 @@ body {
     top: 60px;
 }
 
-.settingsStart,
-.settingsDis,
 .settingsPers,
 .settingsLevel {
     position: relative;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    font-size: 40px;
-    width: 300px;
-    height: 100px;
-    color: #000;
-    border-radius: 10px;
+    font-size: 300%;
+    width: 100px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 0.53%;
+    padding-left: 0.53%;
+    border-radius: 10%;
 }
 
-.settingsStart {
-    background-color: #444;
-}
-
-.settingsStart:hover {
-    background-color: #222;
-}
-
-.setLinksStart,
-.setLinksDis,
 .setLinksPers,
 .setLinksLevel {
     position: relative;
     margin: auto;
     text-align: center;
     font-size: 40px;
-    width: 300px;
-    height: 100px;
-    color: #000;
-}
-
-.setLinksStart {
-    background-color: #666;
-}
-
-.setLinksStart:hover {
-    background-color: #444;
+    width: 100%;
+    padding-top: 9%;
+    padding-bottom: 9%;
+    border-radius: 10px;
 }
 
 .level.text,
@@ -190,14 +191,10 @@ body {
     margin-right: auto;
     position: relative;
     width: 633px;
-    height: 100px;
+    height: 11.11%;
     display: flex;
     flex-wrap: wrap;
     padding-top: 50px;
-}
-
-#confirm {
-    margin-right: 0px;
 }
 
 #detail {
@@ -236,14 +233,10 @@ body {
 
 #menu {
     position: absolute;
-    border-style: none;
-    width: 200px;
+    border-style: dashed;
+    width: 300px;
     height: 900px;
     top: 50px;
-}
-
-#return {
-    margin-left: 0px;
 }
 
 #selection {
@@ -256,10 +249,11 @@ body {
 }
 
 #wrapper {
-    margin-left: 350px;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    width: 1280px;
-    height: 900px;
+    width: 69,23%;
+    height: 95vh;
+    border-style: dashed;
 }
