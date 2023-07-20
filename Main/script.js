@@ -195,8 +195,9 @@ function setId() {
         playButton.innerHTML = "";
         playButton.append(link);
     }
-    else if (boxId == "Online Unterricht" || boxId == "Verlegt, Verloren,Vergessen" || boxId == "DIY") {
+    else if (boxId == "Online Unterricht" || boxId == "Verpeilt" || boxId == "DIY") {
         let button = document.querySelector(`#confirm`);
+        button.innerHTML = "SPIELEN";
         button.addEventListener("click", loadLevels);
     }
 }

@@ -15,7 +15,7 @@ a {
 
 body {
     text-align: center;
-    font-family: lato;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #ddd;
     color: #000;
 }
@@ -24,7 +24,7 @@ h1 {
     margin: auto;
     position: relative;
     text-align: center;
-    font-family: roboto;
+    font-family: fantasy;
     font-size: 800%;
     color: #404040;
 }
@@ -44,7 +44,7 @@ h1:hover {
     padding-top: 4%;
     padding-bottom: 4%;
     border-radius: 20px;
-    font-family: roboto;
+    font-family: fantasy;
 }
 
 .button.people.active,
@@ -93,7 +93,7 @@ h1:hover {
     font-size: 30px;
     overflow-wrap: break-word;
     top: 50px;
-    font-family: roboto;
+    font-family: fantasy;
 }
 
 .level.text,
@@ -176,15 +176,16 @@ h1:hover {
     font-weight: bold;
 }
 
-.disclaimer,
-.setLinksDis,
-.settingsDis {
-    background-color: #dfc023a6;
+.disclaimer {
+    background-color: #404040;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: white;
 }
 
 .disclaimer:hover,
 .setLinksDis:hover {
-    background-color: #dec023ff;
+    background-color: #7f7f7f;
 }
 
 #buttonWrap {
