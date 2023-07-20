@@ -35,12 +35,10 @@ a {
 h3 {
     font-size: 300%;
     font-weight: 600;
-    font-family: melancholy;
 }
 
 h2 {
     font-size: 25pt;
-    font-family: poppins;
     font-weight: 900;
 }
 
@@ -58,7 +56,7 @@ p {
 }
 
 #gameLink {
-    font-family: melancholy;
+    font-family: fantasy;
     font-size: 300%;
 }
 
@@ -83,7 +81,7 @@ p {
 #root, #select1, #select2, #select3 {
     width: 100%;
     text-align: center;
-    font-family: melancholy;
+    font-family: fantasy;
     display: flex;
     flex-wrap: wrap;
 }
