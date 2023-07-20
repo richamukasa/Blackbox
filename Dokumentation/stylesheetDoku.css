@@ -8,6 +8,16 @@
     src: url(/Font/lato/Lato-Regular.ttf);
 }
 
+@font-face {
+    font-family: poppins;
+    src: url(/Font/Poppins/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: melancholy;
+    src: url(/Font/melancholy-serif-font/MelancholySerif-zoGL.otf);
+}
+
 body {
     /* background-color: #f3f3f3; */
     background-color: rgba(110, 132, 188, 1);
@@ -25,12 +35,12 @@ a {
 h3 {
     font-size: 300%;
     font-weight: 600;
-    font-family: roboto;
+    font-family: melancholy;
 }
 
 h2 {
     font-size: 25pt;
-    font-family: lato;
+    font-family: poppins;
     font-weight: 900;
 }
 
@@ -48,7 +58,7 @@ p {
 }
 
 #gameLink {
-    font-family: roboto;
+    font-family: melancholy;
     font-size: 300%;
 }
 
@@ -73,7 +83,7 @@ p {
 #root, #select1, #select2, #select3 {
     width: 100%;
     text-align: center;
-    font-family: roboto;
+    font-family: melancholy;
     display: flex;
     flex-wrap: wrap;
 }
