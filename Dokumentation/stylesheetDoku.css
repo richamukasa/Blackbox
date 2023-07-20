@@ -1,22 +1,107 @@
-body{
-    width:1000px;
-    background-color: #f3f3f3;
+@font-face {
+    font-family: roboto;
+    src: url(/Font/Roboto_Slab/static/RobotoSlab-Bold.ttf);
+}
+
+@font-face {
+    font-family: lato;
+    src: url(/Font/lato/Lato-Regular.ttf);
+}
+
+body {
+    /* background-color: #f3f3f3; */
+    background-color: rgba(110, 132, 188, 1);
     padding: 200px;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
 }
 
-h3{
-    font-size: 30pt;
+a {
+    color: #3d5ba6;
+    text-decoration: none;
+}
+
+h3 {
+    font-size: 300%;
     font-weight: 600;
+    font-family: roboto;
 }
 
-h2{
-    font-weight: 500;
+h2 {
     font-size: 25pt;
+    font-family: lato;
+    font-weight: 900;
 }
 
-p{
-    font-size: 17pt;
+p {
+    font-size: 150%;
     font-weight: 400;
+}
+
+#chapter1, #chapter2, #chapter3, #chapter4  {
+    padding-top: 20%
+}
+
+#root, #select1, #select2, #select3 {
+    width: 100%;
+    text-align: center;
+    font-family: roboto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#root {
+    position: sticky;
+    top: 0;
+    height: 30vh;
+    background-image: linear-gradient(rgba(110, 132, 188, 1), rgba(110, 132, 188, 1), rgba(110, 132, 188, 1), rgba(110, 132, 188, 1), rgba(110, 132, 188, 0));
+    z-index: 1;
+    font-size: 800%;
+}
+
+#rootWrap, .selectWrap {
+    position: relative;
+    margin: auto;
+    width: 800px;
+    height: 100%px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#select1, #select2, #select3 {
+    font-size: 400%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#wrapper {
+    width: 100%;
+    padding-top: 100%;
+}
+
+
+.link, .selection{
+    width: 25%;
+    height: 10vh;
+}
+
+.selection {
+    background-color: #9eadd2ff;
+    border-radius: 10px;
+}
+
+.selection:hover {
+    color: #3d5ba6;
+    background-color: white;
+    border-color: #3d5ba6;
+    border-style: solid;
+    border-width: 2%;
+    width: 24%;
+    height: 9.4vh;
+}
+
+.selectWrap {
+    padding-top: 4%;
+    padding-bottom: 2%;
 }

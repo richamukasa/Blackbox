@@ -218,7 +218,7 @@ function showDetail(_id) {
         detail.innerHTML = levelDetail[0];
     else if (_id == "Howto: Relax")
         detail.innerHTML = levelDetail[1];
-    else if (_id == "Verlegt, Verloren,Vergessen")
+    else if (_id == "Verpeilt")
         detail.innerHTML = levelDetail[2];
     else if (_id == "DIY")
         detail.innerHTML = levelDetail[3];
