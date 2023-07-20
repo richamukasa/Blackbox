@@ -46,6 +46,10 @@ img {
     width: 30%; 
 }
 
+table {
+    border-style: solid;
+}
+
 p {
     font-size: 150%;
     font-weight: 400;
@@ -64,8 +68,9 @@ p {
     color: white;
 }
 
-#peopleWrap {
+.peopleWrap {
     width: 100%;
+    flex-wrap: wrap;
 }
 
 #richard {
