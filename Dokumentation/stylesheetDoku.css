@@ -34,6 +34,10 @@ h2 {
     font-weight: 900;
 }
 
+img {
+    width: 30%; 
+}
+
 p {
     font-size: 150%;
     font-weight: 400;
@@ -41,6 +45,29 @@ p {
 
 #chapter1, #chapter2, #chapter3, #chapter4  {
     padding-top: 20%
+}
+
+#gameLink {
+    font-family: roboto;
+    font-size: 300%;
+}
+
+#gameLink:hover {
+    color: white;
+}
+
+#peopleWrap {
+    width: 100%;
+}
+
+#richard {
+    position: relative;
+    margin-left: 0;
+}
+
+#sophia {
+    position: relative;
+    margin-right: 0;
 }
 
 #root, #select1, #select2, #select3 {
